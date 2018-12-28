@@ -24,7 +24,7 @@ before_script:
 script:
   - python ./decide/manage.py makemigrations
   - python ./decide/manage.py migrate
-  - git archive -o decide.zip
+  - git archive --output decide.zip
 
 before_deploy:
   if ! [[ $TRAVIS_TAG ]]; then
