@@ -27,17 +27,6 @@ script:
   - python ./decide/manage.py compilemessages
   - python ./decide/manage.py test ./decide
 
-before_deploy:
-
-
-deploy:
-  provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
-  file: "FILE TO UPLOAD"
-  skip_cleanup: true
-  on:
-    tags: true
-
 notifications:
     email: false
     
