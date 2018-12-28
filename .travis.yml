@@ -24,8 +24,17 @@ before_script:
 script:
   - python ./decide/manage.py makemigrations
   - python ./decide/manage.py migrate
-  - python ./decide/manage.py compilemessages
-  - python ./decide/manage.py test ./decide
+
+before_deploy:
+  - git archive -o decide.zip
+
+deploy:
+  provider: releases
+  api_key: ed8a36f8d954a1da918fc2eb661fd5dbb56be9c8
+  file: ./decide.zip
+  skip_cleanup: true
+  on:
+    tags: true
 
 notifications:
     email: false
@@ -33,5 +42,3 @@ notifications:
 branches:
     only:
     - master
-    - develop
-    
