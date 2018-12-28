@@ -24,16 +24,16 @@ before_script:
 script:
   - python ./decide/manage.py makemigrations
   - python ./decide/manage.py migrate
-
-before_deploy:
-  - if ! [[ $TRAVIS_TAG ]]; then
-      export TRAVIS_TAG="1.$TRAVIS_BUILD_NUMBER" &&
-      git config --local user.name davigldom &&
-      git config --local user.email davigldom@gmail.com &&
-      git tag "$TRAVIS_TAG" "$TRAVIS_COMMIT";
-    fi
   - git archive -o decide.zip
 
+before_deploy:
+  if ! [[ $TRAVIS_TAG ]]; then
+    export TRAVIS_TAG="1.$TRAVIS_BUILD_NUMBER" &&
+    git config --local user.name davigldom &&
+    git config --local user.email davigldom@gmail.com &&
+    git tag "$TRAVIS_TAG" "$TRAVIS_COMMIT";
+  fi
+  
 deploy:
   provider: releases
   api_key: ed8a36f8d954a1da918fc2eb661fd5dbb56be9c8
