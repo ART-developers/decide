@@ -26,10 +26,12 @@ script:
   - python ./decide/manage.py migrate
 
 before_deploy:
-  - git config --local user.name davigldom 
-  - git config --local user.email davigldom@gmail.com
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
+  - if ! [[ $TRAVIS_TAG ]]; then
+      export TRAVIS_TAG="1.$TRAVIS_BUILD_NUMBER" &&
+      git config --local user.name davigldom &&
+      git config --local user.email davigldom@gmail.com &&
+      git tag "$TRAVIS_TAG" "$TRAVIS_COMMIT";
+    fi
   - git archive -o decide.zip
 
 deploy:
