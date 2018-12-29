@@ -37,6 +37,7 @@ before_deploy:
   
 deploy:
   provider: releases
+  api_key: d1507db592ed048c2f7f34e75e4a8de50f3c8369
   user: davigldom
   password: papadelta16
   file: ./decide.zip
