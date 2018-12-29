@@ -37,8 +37,7 @@ before_deploy:
   
 deploy:
   provider: releases
-  user: davigldom
-  password: 916ab85ae59fe09c6449977f06debd099003ed1d
+  api_key: 916ab85ae59fe09c6449977f06debd099003ed1d
   file: ./decide.zip
   skip_cleanup: true
   on:
