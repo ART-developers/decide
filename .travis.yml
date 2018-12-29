@@ -24,7 +24,7 @@ before_script:
 script:
 - python ./decide/manage.py makemigrations
 - python ./decide/manage.py migrate
-- git archive --format zip --output ./decide.zip master
+- git archive --format zip --output ./decide.zip
 
 before_deploy:
 - git config --local user.name davigldom
