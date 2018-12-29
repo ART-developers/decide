@@ -1,53 +1,46 @@
 language: python
 
 python:
-  - 3.6
+- 3.6
 
 sudo: required
 dist: trusty
 addons:
-  postgresql: "9.6"
+  postgresql: '9.6'
 
 services:
-  - postgresql
+- postgresql
 
 env:
-  - DJANGO_SETTINGS_MODULE="decide.settings"
-  # global:
-  #   secure: "MCFGzGDEY8kjwMYc+yQ4F+GjlSodG/X94yfrabc6nrGy0MCmAgPV6lmm4NdQchy0ASZn6zZX5943up+AIkzMXjjvlOwIQO1ilJ6ZaU/FDIvBHt2sSCshKTLCfeQ7dgxVHTe1FHhGoRPFMDh2WBSfHZHC8jqIIpgqZksmjyt6xGgrzqYYhoLf8Nru7rnUJWYZRJA7DcvjeQjED3CirJFdk7FcHgU2iGS7YDedrrQA/yZDZ+GpL/mXmCtLRbsLCUOPI6r6Pe9t2eDrGyNocg57z/Sjfu919AHYAxI6PHURXM4ybu3vYq2AFtfJAFIFbSTGObQ07uwIgfgF3AjwaGcQybjhosdlLknmPDueJhgbkHqMCjtw23UGCzqR06KoOv+OOoncksTS9cMAGYhkDpSdTHzECz+s5CaXhnBOY0ezMPrd0R12YxH58Wpb4bx9PDHCQN/Ekr7RgE9ATMVdO6dURSg53GG6L2hEdAM+AnJsAa6IqgBV8pyZLYHtiWaLxERLyl3Td1VMj6DmMlM9rAkhuQ9mj3BbrKsagpsVsYfvXgQZoNT6AheLyRxLgo//GuzpxQir9jbtAfLZkN8IoukXD26+7Kq7P54LVoenugnuNJxKNjuZg5AQEG8h/m0kTwMfxPbt5XDnUf6QhVMVcK6jQqF/eVjs3QvUGC/06Vb4od0="
+- DJANGO_SETTINGS_MODULE="decide.settings"
 
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 
 before_script:
-  - psql -c "create user decide with password 'decide'" -U postgres
-  - psql -c "create database decide owner decide" -U postgres
+- psql -c "create user decide with password 'decide'" -U postgres
+- psql -c "create database decide owner decide" -U postgres
 
 script:
-  - python ./decide/manage.py makemigrations
-  - python ./decide/manage.py migrate
-  - git archive --format zip --output ./decide.zip master
+- python ./decide/manage.py makemigrations
+- python ./decide/manage.py migrate
+- git archive --format zip --output ./decide.zip master
 
 before_deploy:
-  - git config --local user.name davigldom
-  - git config --local user.email davigldom@gmail.com
-  # - export GIT_TAG=1.0.22
-  - git tag 1.0.100
-  # - git push https://github.com/decide-ganimedes-autenticacion/decide-ganimedes-autenticacion.git --tags
-  
+- git config --local user.name davigldom
+- git config --local user.email davigldom@gmail.com
+# - export GIT_TAG=1.0.22
+- git tag 1.0.100
+# - git push https://github.com/decide-ganimedes-autenticacion/decide-ganimedes-autenticacion.git --tags
+
 deploy:
   provider: releases
-  api_key: 7fae70a2c4380792d6d1ba3515e3a49e5f76efaf
-  file: ./decide.zip
+  api-key:
+    secure: DJu51MlITLZYIN4/JAiZClHneB2qzh/7uZTjRQvOHAc7lA4kWolGD640aMFZFhEaGfHRspbxqCDl3Wq8XRnhKrS7qVSBZ0r0jekg3LDXpbVobT32RLhjszJ/mEsOhXUtTppxNjNDwUpMIM+bSdOj6ngzlEsHmYZkPfEfoYF3zoIuGOQrCiF9jaHBKyNJPijBeeZG40gxVB4QgcNwZNvM1N0Ei2iwddoRAyUFvJGKWcwDNEilBLnPA54hDiY4D5wnNH69UWaxzpLda9DKybvQmpa3ilo7Qogk7+oGNN9ZOlKQVvGCebHZelwi2RSoeoqdgE1G1Sg/bAdN93QGTOFxbMkSNYjdg7CawSM7hEnM0PMyB/e16FPTvuScmsmThXHRXY0ivMEwQ3+KLo9d7A0KUUw0ebqQR45/73vhixpBhUrl+rxAYSQRwT9G02hyg7TbzB3uTR0i3XbprzCTSVuYbpOihLDsl42IJUs27cwvkA2hh9ORhky8m0G/g6eKGEAldcWzHvUDoWqYd13DV2B8ft0HByRobEKnGec/vnqn+3fgQw5mrPwCR+iHGYLS2A7O4WOehl1reNsW1qfdlRM+kj60u5cPCH8vnOvgTGuvTN3yr/JDNMf7L9qB5FhyoKx7seit2c5o+F5twmkHoWVRWcPAkDb57D4ud7pbf+rQOqM=
+  file: "./decide.zip"
   skip_cleanup: true
   on:
     tags: false
-
+  
 notifications:
-    email: false
-
-# after_success:
-#   - |
-#        $(npm bin)/set-up-ssh --key "$encrypted_8c3ea9ae32fa_key" \
-#                              --iv "$encrypted_8c3ea9ae32fa_iv" \
-#                              --path-encrypted-key ".travis/github_deploy_key.enc"
+  email: false
