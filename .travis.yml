@@ -29,7 +29,7 @@ script:
 before_deploy:
 - git config --local user.name davigldom
 - git config --local user.email davigldom@gmail.com
-# - export GIT_TAG=1.0.22
+# - export GIT_TAG=1.0.23
 - git tag 1.0.103
 
 deploy:
