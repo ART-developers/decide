@@ -35,7 +35,7 @@ before_deploy:
   
 deploy:
   provider: releases
-  api_key: 6d67901d88e77700db6bb8386c7729017d20cbd7
+  api_key: 51b6763dcc5fafb86197ff155ffb1811768379a0
   file: ./decide.zip
   skip_cleanup: true
   on:
