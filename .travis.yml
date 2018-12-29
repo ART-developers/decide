@@ -14,7 +14,7 @@ services:
 env:
   - DJANGO_SETTINGS_MODULE="decide.settings"
   global:
-    - secure: "MCFGzGDEY8kjwMYc+yQ4F+GjlSodG/X94yfrabc6nrGy0MCmAgPV6lmm4NdQchy0ASZn6zZX5943up+AIkzMXjjvlOwIQO1ilJ6ZaU/FDIvBHt2sSCshKTLCfeQ7dgxVHTe1FHhGoRPFMDh2WBSfHZHC8jqIIpgqZksmjyt6xGgrzqYYhoLf8Nru7rnUJWYZRJA7DcvjeQjED3CirJFdk7FcHgU2iGS7YDedrrQA/yZDZ+GpL/mXmCtLRbsLCUOPI6r6Pe9t2eDrGyNocg57z/Sjfu919AHYAxI6PHURXM4ybu3vYq2AFtfJAFIFbSTGObQ07uwIgfgF3AjwaGcQybjhosdlLknmPDueJhgbkHqMCjtw23UGCzqR06KoOv+OOoncksTS9cMAGYhkDpSdTHzECz+s5CaXhnBOY0ezMPrd0R12YxH58Wpb4bx9PDHCQN/Ekr7RgE9ATMVdO6dURSg53GG6L2hEdAM+AnJsAa6IqgBV8pyZLYHtiWaLxERLyl3Td1VMj6DmMlM9rAkhuQ9mj3BbrKsagpsVsYfvXgQZoNT6AheLyRxLgo//GuzpxQir9jbtAfLZkN8IoukXD26+7Kq7P54LVoenugnuNJxKNjuZg5AQEG8h/m0kTwMfxPbt5XDnUf6QhVMVcK6jQqF/eVjs3QvUGC/06Vb4od0="
+    secure: "MCFGzGDEY8kjwMYc+yQ4F+GjlSodG/X94yfrabc6nrGy0MCmAgPV6lmm4NdQchy0ASZn6zZX5943up+AIkzMXjjvlOwIQO1ilJ6ZaU/FDIvBHt2sSCshKTLCfeQ7dgxVHTe1FHhGoRPFMDh2WBSfHZHC8jqIIpgqZksmjyt6xGgrzqYYhoLf8Nru7rnUJWYZRJA7DcvjeQjED3CirJFdk7FcHgU2iGS7YDedrrQA/yZDZ+GpL/mXmCtLRbsLCUOPI6r6Pe9t2eDrGyNocg57z/Sjfu919AHYAxI6PHURXM4ybu3vYq2AFtfJAFIFbSTGObQ07uwIgfgF3AjwaGcQybjhosdlLknmPDueJhgbkHqMCjtw23UGCzqR06KoOv+OOoncksTS9cMAGYhkDpSdTHzECz+s5CaXhnBOY0ezMPrd0R12YxH58Wpb4bx9PDHCQN/Ekr7RgE9ATMVdO6dURSg53GG6L2hEdAM+AnJsAa6IqgBV8pyZLYHtiWaLxERLyl3Td1VMj6DmMlM9rAkhuQ9mj3BbrKsagpsVsYfvXgQZoNT6AheLyRxLgo//GuzpxQir9jbtAfLZkN8IoukXD26+7Kq7P54LVoenugnuNJxKNjuZg5AQEG8h/m0kTwMfxPbt5XDnUf6QhVMVcK6jQqF/eVjs3QvUGC/06Vb4od0="
 
 install:
   - pip install -r requirements.txt
@@ -32,11 +32,13 @@ before_deploy:
   - git config --local user.name davigldom
   - git config --local user.email davigldom@gmail.com
   # - export GIT_TAG=1.0.22
-  - git tag 1.0.22
+  - git tag 1.0.23
   # - git push https://github.com/decide-ganimedes-autenticacion/decide-ganimedes-autenticacion.git --tags
   
 deploy:
   provider: releases
+  api_key:
+    secure: "MCFGzGDEY8kjwMYc+yQ4F+GjlSodG/X94yfrabc6nrGy0MCmAgPV6lmm4NdQchy0ASZn6zZX5943up+AIkzMXjjvlOwIQO1ilJ6ZaU/FDIvBHt2sSCshKTLCfeQ7dgxVHTe1FHhGoRPFMDh2WBSfHZHC8jqIIpgqZksmjyt6xGgrzqYYhoLf8Nru7rnUJWYZRJA7DcvjeQjED3CirJFdk7FcHgU2iGS7YDedrrQA/yZDZ+GpL/mXmCtLRbsLCUOPI6r6Pe9t2eDrGyNocg57z/Sjfu919AHYAxI6PHURXM4ybu3vYq2AFtfJAFIFbSTGObQ07uwIgfgF3AjwaGcQybjhosdlLknmPDueJhgbkHqMCjtw23UGCzqR06KoOv+OOoncksTS9cMAGYhkDpSdTHzECz+s5CaXhnBOY0ezMPrd0R12YxH58Wpb4bx9PDHCQN/Ekr7RgE9ATMVdO6dURSg53GG6L2hEdAM+AnJsAa6IqgBV8pyZLYHtiWaLxERLyl3Td1VMj6DmMlM9rAkhuQ9mj3BbrKsagpsVsYfvXgQZoNT6AheLyRxLgo//GuzpxQir9jbtAfLZkN8IoukXD26+7Kq7P54LVoenugnuNJxKNjuZg5AQEG8h/m0kTwMfxPbt5XDnUf6QhVMVcK6jQqF/eVjs3QvUGC/06Vb4od0="
   file: ./decide.zip
   skip_cleanup: true
   # on:
