@@ -29,8 +29,8 @@ script:
 before_deploy:
   - git config --local user.name davigldom
   - git config --local user.email davigldom@gmail.com
-  - export GIT_TAG=1.0.20
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI build 20"
+  - export GIT_TAG=1.0.21
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI build 21"
   - git push origin $GIT_TAG
   
 deploy:
