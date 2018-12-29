@@ -31,7 +31,7 @@ before_deploy:
 - git config --local user.email davigldom@gmail.com
 # - export GIT_TAG=1.0.$TRAVIS_BUILD_NUMBER-2018
 # - git tag $GIT_TAG -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
-- git tag 1.0.104
+- git tag 1.0.105
 
 deploy:
   provider: releases
