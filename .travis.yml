@@ -31,7 +31,7 @@ before_deploy:
   - git config --local user.email davigldom@gmail.com
   # - export GIT_TAG=1.0.22
   - git tag 1.0.22
-  - git push origin --tags
+  - git push https://github.com/decide-ganimedes-autenticacion/decide-ganimedes-autenticacion.git --tags
   
 deploy:
   provider: releases
