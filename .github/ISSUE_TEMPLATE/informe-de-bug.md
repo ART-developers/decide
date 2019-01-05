@@ -4,6 +4,7 @@ about: Informe sobre un bug en nuestro proyecto.
 title: ''
 labels: bug
 assignees: davigldom
+projects: Prueba
 
 ---
 
