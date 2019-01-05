@@ -1,5 +1,5 @@
 ---
-reviewers: javirogo, Rubentoro, davigldom, mrchavea, carmenJaraAlvarez
+reviewers: davigldom
 ---
 
 **Incidencia para replicar en el repositorio padre de Decide-Ganímedes**
