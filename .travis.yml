@@ -33,6 +33,7 @@ before_deploy:
 - git config --local user.name davigldom
 - git config --local user.email davigldom@gmail.com
 - git tag $GIT_TAG
+#Hasod
 
 deploy:
   provider: releases
