@@ -24,7 +24,11 @@ before_script:
 script:
 - python ./decide/manage.py makemigrations
 - python ./decide/manage.py migrate
-- if [[ $TRAVIS_BRANCH == "master" ]]; then git archive --format zip --output ./decide.zip master; fi
+- if [[ $TRAVIS_BRANCH == master ]] && [[ $DEPLOY_TRAVIS == "1" ]]; then 
+      git archive --format zip --output ./decide.zip master; 
+      echo "Zip generado correctamente."; 
+  fi
+
 
 before_deploy:
 - git config --local user.name davigldom
