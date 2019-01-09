@@ -29,15 +29,12 @@ script:
       echo "Zip generado correctamente."; 
   fi
 
-
 before_deploy:
 - git config --local user.name davigldom
 - git config --local user.email davigldom@gmail.com
-- export YEAR=`date +"%Y"`  
-- export SUM=65
-- export GIT_TAG=v1.0.$((TRAVIS_BUILD_NUMBER+SUM))-$YEAR
 - git tag $GIT_TAG
 #Holu
+
 
 deploy:
   provider: releases
