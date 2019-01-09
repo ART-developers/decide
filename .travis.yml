@@ -33,7 +33,6 @@ before_deploy:
 - git config --local user.name davigldom
 - git config --local user.email davigldom@gmail.com
 - git tag -a $TRAVIS_TAG -m ""
-#Hola
 
 deploy:
   provider: releases
@@ -43,7 +42,6 @@ deploy:
   skip_cleanup: true
   on:
     branch: master
-    tags: false
   
 notifications:
   email: false
