@@ -29,7 +29,6 @@ script:
       echo "Zip generado correctamente."; 
   fi
 
-
 before_deploy:
 - git config --local user.name davigldom
 - git config --local user.email davigldom@gmail.com
