@@ -32,7 +32,7 @@ script:
 before_deploy:
 - git config --local user.name davigldom
 - git config --local user.email davigldom@gmail.com
-- git tag -a $TRAVIS_TAG -m ""
+- git tag $TRAVIS_TAG
 
 deploy:
   provider: releases
