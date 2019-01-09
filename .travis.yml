@@ -32,7 +32,8 @@ script:
 before_deploy:
 - git config --local user.name davigldom
 - git config --local user.email davigldom@gmail.com
-- git tag -a $GIT_TAG 
+- git tag -a $GIT_TAG
+#Hola 
 
 deploy:
   provider: releases
