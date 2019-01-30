@@ -9,6 +9,11 @@ env:
 - DJANGO_VERSION=1.10.8 DJANGO_SETTINGS_MODULE="decide.settings"
 - DJANGO_VERSION=1.11.5 DJANGO_SETTINGS_MODULE="decide.settings"
 
+matrix:
+  include:
+    - python: '3.6'
+      env: DJANGO_VERSION=2.0 DJANGO_SETTINGS_MODULE="decide.settings" DEPLOY_TRAVIS="1"
+
 sudo: required
 dist: trusty
 addons:
