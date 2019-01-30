@@ -24,8 +24,8 @@ before_install:
 - cd decide
 
 install:
-- pip install -q Django==$DJANGO_VERSION
-- pip install -r ../requirements.txt
+- pip3 install -q Django==$DJANGO_VERSION
+- pip3 install -r ../requirements.txt
 
 before_script: 
 - cp local_settings.example.py local_settings.py
