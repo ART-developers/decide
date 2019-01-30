@@ -33,9 +33,9 @@ before_script:
 - psql -c "create database decide owner decide"
 
 script:
-- python3 ./decide/manage.py makemigrations
-- python3 ./decide/manage.py migrate 
-- python3 ./decide/manage.py test
+- python ./manage.py makemigrations
+- python ./manage.py migrate 
+- python ./manage.py test
 - if [[ $TRAVIS_BRANCH == $RAMA_TRAVIS ]] && [[ $DEPLOY_TRAVIS == "1" ]]; then git archive --format zip --output ./$NOMBRE_ZIP.zip $RAMA_TRAVIS; echo "Zip generado correctamente."; fi
 
 before_deploy:
