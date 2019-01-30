@@ -67,8 +67,8 @@ notifications:
     recipients:
       - did2505@gmail.com
       - davigldom@gmail.com
-    on_success: always # default: change
-    on_failure: always # default: always
+    on_success: always
+    on_failure: always
     
 branches:
   only:
