@@ -3,19 +3,20 @@ language: python
 python: 
 - '3.6'
 - '3.5'
-- '2.7'
+- '3.3'
+# - '2.7'
 env: 
 - DJANGO_VERSION=2.0 DJANGO_SETTINGS_MODULE="decide.settings"
-- DJANGO_VERSION=1.10.8 DJANGO_SETTINGS_MODULE="decide.settings"
-- DJANGO_VERSION=1.11.5 DJANGO_SETTINGS_MODULE="decide.settings"
+# - DJANGO_VERSION=1.10.8 DJANGO_SETTINGS_MODULE="decide.settings"
+# - DJANGO_VERSION=1.11.5 DJANGO_SETTINGS_MODULE="decide.settings"
 
 matrix:
   include:
     - python: '3.6'
       env: DJANGO_VERSION=2.0 DJANGO_SETTINGS_MODULE="decide.settings" DEPLOY_TRAVIS="1"
-  exclude:
-    - python: '2.7'
-      env: DJANGO_VERSION=2.0 DJANGO_SETTINGS_MODULE="decide.settings"
+  # exclude:
+  #   - python: '2.7'
+  #     env: DJANGO_VERSION=2.0 DJANGO_SETTINGS_MODULE="decide.settings"
 
 sudo: required
 dist: trusty
