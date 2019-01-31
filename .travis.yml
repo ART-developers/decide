@@ -16,7 +16,7 @@ matrix:
     - python: 3.7.1
       dist: xenial
       env: DJANGO_VERSION=2.0 DJANGO_SETTINGS_MODULE="decide.settings"
-      sudo: true
+      # sudo: true
   # exclude:
   #   - python: '2.7'
   #     env: DJANGO_VERSION=2.0 DJANGO_SETTINGS_MODULE="decide.settings"
